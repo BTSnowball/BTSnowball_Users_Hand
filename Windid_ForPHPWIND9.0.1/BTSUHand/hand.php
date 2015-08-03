@@ -167,9 +167,9 @@ function handdl($username,$password,$fs=1,$rid=2){
 function handqx($qxa,$user,$hdbname='BTSUHand'){ 
 	/*如果将权限检查函数强制为根据USERNAME/EMAIL中的某一个检查则必须在handlogin中将将传入的值进行统一*/
 	$qxa=trim($qxa);
-	$user=fzr($user);
+	$username=fzr($user);
 	$windid = WindidApi::api('user');
-	if(isEmail($user)){
+	if(isEmail($username)){
 		$dlfs='2';
 	}else{
 		$dlfs='0';
