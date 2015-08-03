@@ -129,5 +129,8 @@ handdl($username,$password,2);
 $_SESSION['windreg']=$regjg['uid'];
 $_SESSION['wrsuc']='yes';
 $WDomain=$WDomain.'/BTSUHand/Windidrep.php';
+$SDomain=$WDomain;
+$mweb=$WDomain;
+$appweb=$WDomain;
 }
 }
