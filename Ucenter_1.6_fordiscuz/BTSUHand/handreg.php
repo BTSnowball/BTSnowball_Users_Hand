@@ -19,6 +19,7 @@ $docait='2';
 /*UC邮箱绑定*/
 if(isset($_SESSION["btsbd"],$_POST["pwd"],$_SESSION["email"],$_SESSION["Ibh"],$_SESSION["username"])){
 if($_SESSION["btsbd"]=='1'){
+	$_SESSION["btsbd"]=='3';
 	unset($_SESSION["btsbd"]);
 		$Uusername=$_SESSION["username"];
 		$email=$_SESSION["email"];
@@ -35,6 +36,7 @@ if($_SESSION["btsbd"]=='1'){
 			$Iuid=$bdjg["uid"];
 			$Iusername=$bdjg['username'];
 			$docait='1';
+			$bdyzh='1';
 		}else{
 			$btsuee='1';
 			$btsuerrormsg='写入出现错误，请刷新！';
@@ -44,6 +46,7 @@ if($_SESSION["btsbd"]=='1'){
 /*UC邮箱绑定结束*/
 if(isset($_SESSION["btsreg"],$_POST["pwd"],$_POST["email"],$_SESSION["Ibh"],$_POST["username"])){
 	if($_SESSION["btsreg"]=='1'){
+		$_SESSION["btsreg"]='3';
 		unset($_SESSION["btsreg"]);
 		$Uusername=$_SESSION["username"];
 		$Ibh=$_SESSION["Ibh"];

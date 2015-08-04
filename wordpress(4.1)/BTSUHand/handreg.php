@@ -35,6 +35,7 @@ if($_SESSION["btsbd"]=='1'){
 			$Iuid=$bdjg["uid"];
 			$Iusername=$bdjg['username'];
 			$docait='1';
+			$bdyzh='1';
 		}else{
 			echo 'faild####'.$bdjg["username"];
 			exit;
