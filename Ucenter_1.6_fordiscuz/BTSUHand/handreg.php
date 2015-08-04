@@ -27,8 +27,8 @@ if($_SESSION["btsbd"]=='1'){
 		$Udm=$_SESSION["Udm"];
 		$bdjg=handdl($email,$password,1,1);
 		if(!isset($bdjg["jg"])){
-	    echo 'Faild!1bd'.$bdjg.$email;
-	    exit;
+	    $btsuerrormsg='写入出现错误'.$bdjg.$email;
+	    $btsuee='1';
          }
 		$bdzj=$bdjg["jg"];
 		if($bdzj=="TRUE"){
@@ -36,8 +36,8 @@ if($_SESSION["btsbd"]=='1'){
 			$Iusername=$bdjg['username'];
 			$docait='1';
 		}else{
-			echo 'faild#';
-			exit;
+			$btsuee='1';
+			$btsuerrormsg='写入出现错误，请刷新！';
 		}
 }
 }
@@ -116,8 +116,8 @@ if($regjg["jg"]!='1'){
 		<?
 		*/	
 	}else{
-	    echo "Faild!4".utf8str($regjg['msg']);
-	    exit;
+			$btsuee='1';
+			$btsuerrormsg='Error！'.utf8str($regjg['msg']);
 	}
 }else{
 $Iuid=$regjg['uid'];

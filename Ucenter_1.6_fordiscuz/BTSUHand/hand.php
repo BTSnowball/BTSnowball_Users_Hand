@@ -76,8 +76,28 @@ function handdl($username,$password,$fs=1,$rid=2){
 		}
 	}else if($fs==2){
 		if($dlfs=='2'){
-			 $umsgi=QCBDUser($username,4,'none');
-			 $username=$umsgi['Iusername'];
+			include("../BTSUHAND/dorun/Run_Mysql.php");
+			 $sqluc=mysql_query("SELECT `uid`,`username` FROM `pre_ucenter_members` WHERE `email`='".$username."' ",$linka);
+			 if(empty($sqluc)){
+				 $remsg['jg']="FALSE";
+				 $remsg['username']=$username;
+				 $remsg['txt']='用户不存在';
+				 return $remsg;
+			 }
+             $infouc=mysql_fetch_object($sqluc);
+			 if($infouc==""){
+				 $remsg['jg']="FALSE";
+				 $remsg['username']=$username;
+				 $remsg['txt']='用户不存在';
+				 return $remsg;
+			 }
+			 if(!isset($infouc->uid)){
+				 $remsg['jg']="FALSE";
+				 $remsg['username']=$username;
+				 $remsg['txt']='用户不存在';
+				 return $remsg;
+			 }
+			 $username=$infouc->username;
 		}
 		if($data = uc_get_user($username)) {
 	    //list($uid, $username, $email) = $data;
@@ -172,6 +192,12 @@ function handreg($username,$email,$password){
 	$username=addslashes($username);
 	$email=addslashes($email);
 	$password=addslashes($password);
+	$ckem=uc_user_checkemail($email);
+	if($ckem=="-6"){
+		$remsg['msg']='该 Email 已经被注册';
+		$remsg['jg']='-6';
+		return $remsg;
+	}
 	$uid = uc_user_register($username, $password, $email);
     if($uid <= 0) {
 	if($uid == -6) {
