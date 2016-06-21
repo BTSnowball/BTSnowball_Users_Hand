@@ -19,6 +19,8 @@ if(!isset($rid)){
 }
 $handdlfh=handdl($username,$password,$fs,$rid);
 //$username=$handdljg['username'];
+echo $username;
+echo $handdlfh['txt'];
 if($rid==1){
 $handdljg=$handdlfh['jg'];
 $username=$handdlfh['username'];
